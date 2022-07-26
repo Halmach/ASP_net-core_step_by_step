@@ -44,7 +44,7 @@ namespace FirstWebCoreProject
             //app.UseStaticFiles();
 
             //app.UseRouting();
-
+             
             app.UseWelcomePage();
             //app.UseAuthorization();
 
