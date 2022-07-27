@@ -21,10 +21,10 @@ namespace FirstWebCoreProject
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        //public void ConfigureServices(IServiceCollection services)
-        //{
-        //    services.AddRazorPages();
-        //}
+        public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddRazorPages();
+        }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app )//, IWebHostEnvironment env)
@@ -40,18 +40,23 @@ namespace FirstWebCoreProject
             //    app.UseHsts();
             //}
 
-          //  app.UseHttpsRedirection();
+            //  app.UseHttpsRedirection();
+
+            app.UseExceptionHandler("/Error");
+
             app.UseStaticFiles();
 
-            //app.UseRouting();
-             
-            app.UseWelcomePage();
+            app.UseRouting();
+
+
             //app.UseAuthorization();
 
-            //app.UseEndpoints(endpoints =>
-            //{
-            //    endpoints.MapRazorPages();
-            //});
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapRazorPages();
+            });
+
+            app.UseWelcomePage();
         }
     }
 }
