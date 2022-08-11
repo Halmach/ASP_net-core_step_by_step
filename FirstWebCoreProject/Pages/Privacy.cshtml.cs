@@ -19,8 +19,7 @@ namespace FirstWebCoreProject.Pages
 
         public IActionResult OnGet()
         {
-            var url = Url.Page("Error", new { code = "ErrorFromPrivacy" });
-            return Content($"The URL is {url}");
+            return RedirectToPage("Index", new { id = 5 });
         }
     }
 }
