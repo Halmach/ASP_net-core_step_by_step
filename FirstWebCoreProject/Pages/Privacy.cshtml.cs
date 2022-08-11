@@ -17,8 +17,10 @@ namespace FirstWebCoreProject.Pages
             _logger = logger;
         }
 
-        public void OnGet()
+        public IActionResult OnGet()
         {
+            var url = Url.Page("Error", new { code = "ErrorFromPrivacy" });
+            return Content($"The URL is {url}");
         }
     }
 }
