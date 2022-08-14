@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -11,15 +12,18 @@ namespace FirstWebCoreProject.Pages
     public class PrivacyModel : PageModel
     {
         private readonly ILogger<PrivacyModel> _logger;
+        private readonly LinkGenerator _link;
 
-        public PrivacyModel(ILogger<PrivacyModel> logger)
+        public PrivacyModel(ILogger<PrivacyModel> logger, LinkGenerator linkGenerator)
         {
             _logger = logger;
+            _link = linkGenerator;
         }
 
         public IActionResult OnGet()
         {
-            return RedirectToPage("Index", new { id = 5 });
+            var url1 = Url.Page("/Error");
+            return RedirectToPage(url1);
         }
     }
 }
